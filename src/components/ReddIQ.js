@@ -1,27 +1,3 @@
-        {/* Post Analysis Tab - Centered */}
-        {activeTab === 'post' && (
-          <div className="space-y-6 max-w-2xl mx-auto">
-            <div className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-2xl">
-              <h2 className="text-xl font-bold text-white mb-4 text-center">Post Removal Risk Analysis</h2>
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Enter subreddit name (without r/)"
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                />
-                <textarea
-                  placeholder="Paste your post title and content here..."
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
-                />
-                <button
-                  onClick={() => {
-                    const subreddit = document.querySelector('input[placeholder*="subreddit"]').value.trim();
-                    const content = document.querySelector('textarea').value.trim();
-                    if (subreddit && content) analyzePost(content, subreddit);
-                  }}
-                  disabled={loading}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 import React, { useState } from 'react';
 import { Search, User, FileText, TrendingUp, Calendar, MessageCircle, Award, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 
 const ReddIQ = () => {
