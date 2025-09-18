@@ -241,19 +241,24 @@ const ReddIQ = () => {
     if (data.employee) score += 1;
     if (data.mod) score += 0.5;
     
-    // Subreddit Diversity (5 points max)
-    const diversityScore = Math.min(data.topSubreddits.length / 8, 1);
-    score += diversityScore * weights.diversity;
-    
-    // Penalties
-    if (data.controversialPosts > data.postsCount * 0.2) {
-      score -= 5; // High controversy penalty
-    }
-    
-    return Math.max(0, Math.min(Math.round(score), 100)); score += 12;
-    else if (data.totalKarma > 500) score += 8;
-    else if (data.totalKarma > 100) score += 5;
-    else score += 2;
+      // Subreddit Diversity (5 points max)
+const diversityScore = Math.min(data.topSubreddits.length / 8, 1);
+score += diversityScore * weights.diversity;
+
+// Penalties
+if (data.controversialPosts > data.postsCount * 0.2) {
+  score -= 5; // High controversy penalty
+}
+
+// Karma scoring
+if (data.totalKarma > 1000) score += 12;
+else if (data.totalKarma > 500) score += 8;
+else if (data.totalKarma > 100) score += 5;
+else score += 2;
+
+// Final normalized score (0–100)
+return Math.max(0, Math.min(Math.round(score), 100));
+};
     
     // Activity level (20 points max)
     const totalActivity = data.postsCount + data.commentsCount;
