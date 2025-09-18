@@ -250,8 +250,7 @@ const ReddIQ = () => {
       score -= 5; // High controversy penalty
     }
     
-    return Math.max(0, Math.min(Math.round(score), 100));
-  };) score += 12;
+    return Math.max(0, Math.min(Math.round(score), 100)); score += 12;
     else if (data.totalKarma > 500) score += 8;
     else if (data.totalKarma > 100) score += 5;
     else score += 2;
